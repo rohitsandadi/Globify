@@ -1,9 +1,9 @@
-package com.example.globifyp;
+/*package com.example.globifyp;
 
 
 
 public record Greeting(long id, String content) {
 
-}
+}*/
 
 

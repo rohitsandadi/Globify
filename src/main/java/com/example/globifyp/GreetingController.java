@@ -1,4 +1,4 @@
-package com.example.globifyp;
+/*package com.example.globifyp;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -21,4 +21,4 @@ public class GreetingController {
 
 
 
-}
+}*/
