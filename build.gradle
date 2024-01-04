@@ -13,6 +13,9 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url uri('https://repo.maven.apache.org/maven2/') }
 }
 
 dependencies {
@@ -21,9 +24,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'com.deepl.api:deepl-java:1.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()

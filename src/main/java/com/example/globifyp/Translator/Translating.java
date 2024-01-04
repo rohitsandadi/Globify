@@ -2,7 +2,6 @@ package com.example.globifyp.Translator;
 
 import com.deepl.api.TextResult;
 import com.deepl.api.Translator;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
