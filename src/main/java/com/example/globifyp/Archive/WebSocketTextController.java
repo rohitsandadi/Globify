@@ -1,4 +1,4 @@
-package com.example.globifyp.Chat;
+package com.example.globifyp.Archive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebSocketTextController {
 
     @Autowired
-    SimpMessagingTemplate myController;
+    SimpMessagingTemplate template;
 
     @PostMapping("/send")
     public ResponseEntity<Void> sendMessage(@RequestBody TextMessageDTO textMessageDTO){
-        myController.convertAndSend("/message/message", textMessageDTO);
+        template.convertAndSend("/topic/chatMessage", textMessageDTO);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-    @SendTo("/message/message")
+    @SendTo("/topic/chatMessage")
     public TextMessageDTO broadcastMessage(@Payload TextMessageDTO textMessageDTO){
         return textMessageDTO;
     }
