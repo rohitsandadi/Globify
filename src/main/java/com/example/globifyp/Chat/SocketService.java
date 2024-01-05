@@ -3,6 +3,8 @@ package com.example.globifyp.Chat;
 import com.corundumstudio.socketio.SocketIOClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import com.example.globifyp.Chat.Message;
+import com.example.globifyp.Chat.MessageType;
 
 @Service
 @Slf4j
