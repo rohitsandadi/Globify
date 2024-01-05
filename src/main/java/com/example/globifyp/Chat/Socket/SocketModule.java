@@ -1,16 +1,12 @@
-package com.example.globifyp.Chat;
+package com.example.globifyp.Chat.Socket;
 
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 import com.corundumstudio.socketio.listener.DisconnectListener;
-import com.example.globifyp.Chat.Message;
-import com.example.globifyp.Chat.SocketService;
+import com.example.globifyp.Chat.Model.Message;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import lombok.Data;
 
 
 @Slf4j
@@ -32,7 +28,7 @@ public class SocketModule {
         return (senderClient, data, ackSender) -> {
 
             //socketService.sendMessage("xyx", "get_message", senderClient, "fff");
-            socketService.sendMessage(data.getRoom(),"get_message", senderClient, data.getMessage());
+            socketService.sendSocketMessage(data.getRoom(),"get_message", senderClient, data.getMessage());
         };
     }
 

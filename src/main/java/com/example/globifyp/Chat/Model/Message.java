@@ -1,4 +1,4 @@
-package com.example.globifyp.Chat;
+package com.example.globifyp.Chat.Model;
 
 import lombok.Data;
 
