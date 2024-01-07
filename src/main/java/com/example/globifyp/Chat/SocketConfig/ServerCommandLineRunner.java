@@ -13,6 +13,11 @@ public class ServerCommandLineRunner implements CommandLineRunner {
     private final SocketIOServer server;
     @Override
     public void run(String... args) throws Exception {
-        server.start();
+        try {
+            server.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

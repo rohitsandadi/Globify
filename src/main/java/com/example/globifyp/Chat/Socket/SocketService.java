@@ -15,22 +15,30 @@ import com.example.globifyp.Translator.Translating;
 @Slf4j
 public class SocketService {
 
+    @Autowired
     Translating translator;
+
     private final MessageService messageService;
 
     public void sendSocketMessage(SocketIOClient senderClient, Message message, String room) {
         for (SocketIOClient client : senderClient.getNamespace().getRoomOperations(room).getClients()) {
             if (!client.getSessionId().equals(senderClient.getSessionId())) {
-                client.sendEvent("read_message",
-                        message);
+                client.sendEvent("read_message", message);
             }
         }
     }
 
     public void saveMessage(SocketIOClient senderClient, Message message) {
+        String translatedText = message.getContent();
+        try{
+            translatedText = translator.textTranslator(message.getContent(), "fr");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         Message storedMessage = messageService.saveMessage(Message.builder()
                 .messageType(MessageType.CLIENT)
-                .content(message.getContent())
+                .content(translatedText)
                 .room(message.getRoom())
                 .username(message.getUsername())
                 .build());

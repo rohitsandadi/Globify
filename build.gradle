@@ -32,6 +32,8 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
     implementation 'com.corundumstudio.socketio:netty-socketio:2.0.6'
     runtimeOnly 'org.postgresql:postgresql'
+    implementation("de.tschuehly:htmx-supabase-spring-boot-starter:0.3.0")
+    runtimeOnly 'com.h2database:h2'
 
 }
 
