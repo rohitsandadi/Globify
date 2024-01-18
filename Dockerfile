@@ -1,11 +1,10 @@
 FROM eclipse-temurin:17 AS build
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
-RUN apt-get clean
 COPY . .
 RUN ./gradlew bootJar --no-daemon
 
-FROM openjdk-17-jdk
+FROM openjdk-17-jdk-slim
 EXPOSE 8080
 EXPOSE 8081
 EXPOSE 8082
