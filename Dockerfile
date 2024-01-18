@@ -1,5 +1,5 @@
 #FROM eclipse-temurin:17 AS build
-FROM ubuntu:latest AS build
+FROM gradle:jdk17 AS build
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
 COPY . .
