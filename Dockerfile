@@ -5,7 +5,7 @@ RUN apt-get install openjdk-17-jdk -y
 COPY . .
 RUN ./gradlew bootJar --no-daemon
 
-FROM codingsoldier/openjdk-17-jdk-slim-enhance
+FROM openjdk:17-jdk-slim
 EXPOSE 8080
 EXPOSE 8081
 EXPOSE 8082
